@@ -7,15 +7,9 @@
 
 import Foundation
 
-struct DirectusUsersID:Decodable {
-    let directus_users_id:User
-}
-
 struct Conversation:Decodable {
     let id:UUID
     let date_created:String
-    let date_updated:String?
-    let user_created:User
-    var Messages:[Message]
-    var Contributors:[DirectusUsersID]
+    var Messages:[UUID]
+    var Contributors:[Int]
 }
