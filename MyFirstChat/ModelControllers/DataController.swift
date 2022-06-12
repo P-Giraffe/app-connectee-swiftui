@@ -142,7 +142,7 @@ struct DataController {
         getRequest.setValue("bearer \(token)", forHTTPHeaderField: "Authorization")
         
         do {
-            let (data, _) = try await session.data(from: url)
+            let (data, _) = try await session.data(for: getRequest)
             
             if let decodedResponse = try? JSONDecoder().decode(ResponseMessage.self, from: data) {
                 messages = decodedResponse.data
