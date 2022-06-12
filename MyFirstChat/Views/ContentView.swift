@@ -8,15 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var tokenViewModel:TokenViewModel = TokenViewModel()
     var body: some View {
-        if tokenViewModel.isConnected {
-            ConversationsView()
-                .environmentObject(tokenViewModel)
-        }else{
-            Login()
-                .environmentObject(tokenViewModel)
-        }
+        ConversationsView()
     }
 }
 

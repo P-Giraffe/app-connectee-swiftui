@@ -17,8 +17,7 @@ class MessageViewModel:ObservableObject {
         self.messages = messages
     }
     
-    @MainActor
     public func messagesList(token:String) async {
-        messages = await dataController.getMessages(conversation: conversationId,token:token)
+        messages = await dataController.getMessages(conversation: conversationId)
     }
 }

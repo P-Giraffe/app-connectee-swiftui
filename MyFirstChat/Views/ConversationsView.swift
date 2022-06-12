@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ConversationsView: View {
     @StateObject var conversationViewModel:ConversationViewModel = ConversationViewModel()
-    @EnvironmentObject var tokenViewModel:TokenViewModel
     
     var body: some View {
         NavigationView {
@@ -19,12 +18,8 @@ struct ConversationsView: View {
             }
             
         }
-        .navigationTitle("Mes conversations")
         .task {
-            await tokenViewModel.needRefresh()
-            if let tokenFound = tokenViewModel.token {
-                await conversationViewModel.conversationsList(token: tokenFound.access_token)
-            }
+            await conversationViewModel.conversationsList()
         }
         }
     }

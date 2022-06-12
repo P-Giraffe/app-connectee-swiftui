@@ -16,9 +16,6 @@
 		E6465AE3283E991A00D000B4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6465AE2283E991A00D000B4 /* ContentView.swift */; };
 		E6465AE5283E991B00D000B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6465AE4283E991B00D000B4 /* Assets.xcassets */; };
 		E6465AE8283E991B00D000B4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6465AE7283E991B00D000B4 /* Preview Assets.xcassets */; };
-		E69CDE362854C73800400B24 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69CDE352854C73800400B24 /* Token.swift */; };
-		E69CDE382854D7F600400B24 /* TokenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69CDE372854D7F600400B24 /* TokenViewModel.swift */; };
-		E69CDE3A2854DE2E00400B24 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69CDE392854DE2E00400B24 /* Login.swift */; };
 		E6E7A468283FBFE20075D6D8 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E7A467283FBFE20075D6D8 /* Message.swift */; };
 		E6E7A46A283FC4F70075D6D8 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E7A469283FC4F70075D6D8 /* Conversation.swift */; };
 		E6E7A46C283FCE5C0075D6D8 /* Conversations_Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E7A46B283FCE5C0075D6D8 /* Conversations_Users.swift */; };
@@ -36,9 +33,6 @@
 		E6465AE2283E991A00D000B4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E6465AE4283E991B00D000B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6465AE7283E991B00D000B4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E69CDE352854C73800400B24 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
-		E69CDE372854D7F600400B24 /* TokenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewModel.swift; sourceTree = "<group>"; };
-		E69CDE392854DE2E00400B24 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		E6E7A467283FBFE20075D6D8 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		E6E7A469283FC4F70075D6D8 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		E6E7A46B283FCE5C0075D6D8 /* Conversations_Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversations_Users.swift; sourceTree = "<group>"; };
@@ -109,7 +103,6 @@
 				E6E7A469283FC4F70075D6D8 /* Conversation.swift */,
 				E6E7A46B283FCE5C0075D6D8 /* Conversations_Users.swift */,
 				E6E7A46D283FD1460075D6D8 /* User.swift */,
-				E69CDE352854C73800400B24 /* Token.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -119,7 +112,6 @@
 			children = (
 				E61E98F2284682A70034E545 /* ConversationViewModel.swift */,
 				E63D05212847CB1D0035AC69 /* MessageViewModel.swift */,
-				E69CDE372854D7F600400B24 /* TokenViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -130,7 +122,6 @@
 				E6465AE2283E991A00D000B4 /* ContentView.swift */,
 				E61E98F42846894E0034E545 /* ConversationsView.swift */,
 				E63D05252847D9000035AC69 /* MessageView.swift */,
-				E69CDE392854DE2E00400B24 /* Login.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -208,12 +199,9 @@
 				E61E98F1284651D90034E545 /* DataController.swift in Sources */,
 				E6E7A46A283FC4F70075D6D8 /* Conversation.swift in Sources */,
 				E63D05222847CB1D0035AC69 /* MessageViewModel.swift in Sources */,
-				E69CDE362854C73800400B24 /* Token.swift in Sources */,
 				E6E7A468283FBFE20075D6D8 /* Message.swift in Sources */,
 				E6E7A46E283FD1460075D6D8 /* User.swift in Sources */,
 				E6465AE3283E991A00D000B4 /* ContentView.swift in Sources */,
-				E69CDE3A2854DE2E00400B24 /* Login.swift in Sources */,
-				E69CDE382854D7F600400B24 /* TokenViewModel.swift in Sources */,
 				E63D05262847D9000035AC69 /* MessageView.swift in Sources */,
 				E61E98F3284682A70034E545 /* ConversationViewModel.swift in Sources */,
 				E6465AE1283E991A00D000B4 /* MyFirstChatApp.swift in Sources */,

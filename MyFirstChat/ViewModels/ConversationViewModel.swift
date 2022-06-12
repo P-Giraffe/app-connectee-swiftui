@@ -11,10 +11,7 @@ class ConversationViewModel:ObservableObject {
     let dataController:DataController = DataController()
     @Published var conversations:[Conversation] = []
     
-    @MainActor
-    public func conversationsList(token:String) async {
-        if let userID = await dataController.getCurrentUser(token: token) {
-            conversations = await dataController.getConversations(token: token, userID: userID.id)
-        }
+    public func conversationsList() async {
+        conversations = await dataController.getConversations()
     }
 }
