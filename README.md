@@ -11,6 +11,6 @@ Ce cours permet à des développeurs iOS ayant déjà des connaissances en Swift
 Il fait partie des cours en ligne disponibles sur le site de Purple Giraffe.
 
 ## Corrections et codes sources
-----
+
 Ce dépôt contient les sources de l’application abordée dans le cours. Choisissez le dossier correspondant chapitre et vous y trouverez les sources à compiler/exécuter.
 La branche main contient la version  initiale qu’il vous faudra transformer en chat. Les autres branches sont réparties par chapitre et présentent le résultat de chacun des travaux d’avanceme
