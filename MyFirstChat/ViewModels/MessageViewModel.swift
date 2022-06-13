@@ -9,7 +9,7 @@ import SwiftUI
 
 class MessageViewModel:ObservableObject {
     @Published var messages:[Message]
-    let conversationId:UUID
+    @Published var conversationId:UUID
     let dataController:DataController = DataController()
     
     init(messages:[Message], conversationId:UUID) {
@@ -20,5 +20,10 @@ class MessageViewModel:ObservableObject {
     @MainActor
     public func messagesList(token:String) async {
         messages = await dataController.getMessages(conversation: conversationId,token:token)
+    }
+    
+    @MainActor
+    public func sendMessage(content:String, token:String) async {
+        await dataController.sendMessage(content: content, conversationID: conversationId, token: token)
     }
 }

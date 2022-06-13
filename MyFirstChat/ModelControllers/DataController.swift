@@ -19,8 +19,12 @@ struct ResponseUser:Decodable {
     var data:User
 }
 
+struct MessagesReceived:Decodable {
+    var Messages:[Message]
+}
+
 struct ResponseMessage:Decodable {
-    var data:[Message]
+    var data:[MessagesReceived]
 }
 
 struct DataController {
@@ -129,7 +133,8 @@ struct DataController {
     
     public func getMessages(conversation:UUID, token:String) async -> [Message] {
         var messages:[Message] = []
-        let request = "https://directus.myjobly.fr/items/Conversations?fields=Messages.user_created.last_name,Messages.user_created.first_name,Messages.user_created.id,Messages.user_created.email,Messages.id,Messages.Content,Messages.date_created,Messages.status,Messages.Conversation&filter[Messages][Conversation][_eq]=\(conversation)"
+        let conversationLowerCase = conversation.uuidString.lowercased()
+        let request = "https://directus.myjobly.fr/items/Conversations?fields=Messages.user_created.last_name,Messages.user_created.first_name,Messages.user_created.id,Messages.user_created.email,Messages.id,Messages.Content,Messages.date_created,Messages.status,Messages.Conversation&filter[Messages][Conversation][_eq]=\(conversationLowerCase)"
         
         let session = URLSession.shared
         
@@ -145,7 +150,7 @@ struct DataController {
             let (data, _) = try await session.data(for: getRequest)
             
             if let decodedResponse = try? JSONDecoder().decode(ResponseMessage.self, from: data) {
-                messages = decodedResponse.data
+                messages = decodedResponse.data.first!.Messages
             } else {
                 print("Unable to fetch data")
             }
@@ -153,6 +158,38 @@ struct DataController {
             print("invalid data")
         }
         return messages
+    }
+    
+    public func sendMessage(content:String, conversationID:UUID, token:String) async {
+        let request = "https://directus.myjobly.fr/items/Messages"
+        let conversationLowerCase = conversationID.uuidString.lowercased()
+        
+        let session = URLSession.shared
+        
+        guard let url = URL(string: request) else {
+            return
+        }
+        
+        var messageRequest = URLRequest(url: url)
+        messageRequest.httpMethod = "POST"
+        
+        let messageBody = [
+            "Status":"sent",
+            "Content":"\(content)",
+            "Conversation":"\(conversationLowerCase)"
+        ]
+        
+        let body = try? JSONSerialization.data(withJSONObject: messageBody, options: [])
+        
+        messageRequest.httpBody = body
+        messageRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        messageRequest.addValue("bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        do {
+            let(_,_) = try await session.data(for: messageRequest)
+        }catch{
+            print("invalid data")
+        }
     }
     
     public func getCurrentUser(token:String) async -> User? {
